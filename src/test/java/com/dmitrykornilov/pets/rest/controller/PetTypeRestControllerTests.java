@@ -6,7 +6,6 @@ import java.util.List;
 
 import com.dmitrykornilov.pets.mapper.PetTypeMapper;
 import com.dmitrykornilov.pets.model.PetType;
-import com.dmitrykornilov.pets.rest.advice.ExceptionControllerAdvice;
 import com.dmitrykornilov.pets.service.ApplicationTestConfig;
 import com.dmitrykornilov.pets.service.PetsService;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -51,9 +50,7 @@ class PetTypeRestControllerTests {
 
     @BeforeEach
     void initPetTypes(){
-    	this.mockMvc = MockMvcBuilders.standaloneSetup(petTypeRestController)
-    			.setControllerAdvice(new ExceptionControllerAdvice())
-    			.build();
+    	this.mockMvc = MockMvcBuilders.standaloneSetup(petTypeRestController).build();
 
 		petTypes.clear();
 

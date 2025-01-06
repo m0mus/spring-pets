@@ -8,7 +8,6 @@ import java.util.List;
 
 import com.dmitrykornilov.pets.mapper.OwnerMapper;
 import com.dmitrykornilov.pets.mapper.PetMapper;
-import com.dmitrykornilov.pets.rest.advice.ExceptionControllerAdvice;
 import com.dmitrykornilov.pets.rest.dto.OwnerDto;
 import com.dmitrykornilov.pets.rest.dto.PetDto;
 import com.dmitrykornilov.pets.rest.dto.PetTypeDto;
@@ -64,9 +63,7 @@ class OwnerRestControllerTests {
 
     @BeforeEach
     void initOwners() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(ownerRestController)
-                .setControllerAdvice(new ExceptionControllerAdvice())
-                .build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(ownerRestController).build();
 
         owners.clear();
         owners.add(new OwnerDto(1, "John", "Doe", "123 Camden High Street", "London ", "123456", new ArrayList<>()));

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.dmitrykornilov.pets.mapper.PetMapper;
-import com.dmitrykornilov.pets.rest.advice.ExceptionControllerAdvice;
 import com.dmitrykornilov.pets.rest.dto.PetDto;
 import com.dmitrykornilov.pets.rest.dto.PetTypeDto;
 import com.dmitrykornilov.pets.service.ApplicationTestConfig;
@@ -56,9 +55,7 @@ class PetRestControllerTests {
 
     @BeforeEach
     void initPets() {
-        this.mockMvc = MockMvcBuilders.standaloneSetup(petRestController)
-            .setControllerAdvice(new ExceptionControllerAdvice())
-            .build();
+        this.mockMvc = MockMvcBuilders.standaloneSetup(petRestController).build();
 
         var dogType = new PetTypeDto(2, "dog");
 
